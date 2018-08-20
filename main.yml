@@ -1,0 +1,13 @@
+---
+
+- name: silhouette - define your profile
+
+  hosts: localhost
+  connection: local
+
+  roles:
+    - silhouette
+    - powerlevel9k
+    - zsh
+    - rbenv
+    - dnstracer

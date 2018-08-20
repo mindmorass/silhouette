@@ -1,0 +1,4 @@
+---
+
+powerlevel_home: "{{silhouette_profile}}/powerlevel9k"
+powerlevel_vars: "{{silhouette_profile}}/powerlevel9k.vars"

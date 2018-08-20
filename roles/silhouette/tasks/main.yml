@@ -1,0 +1,49 @@
+- name: home directory
+  file:
+    path: "{{silhouette_home}}"
+    state: directory
+    mode: 0740
+
+- name: bin directory
+  file:
+    path: "{{silhouette_bin}}"
+    state: directory
+    mode: 0740
+
+- name: profile directory
+  file:
+    path: "{{silhouette_profile}}"
+    state: directory
+    mode: 0740
+
+- name: static dotfiles directory
+  file:
+    path: "{{silhouette_dotfiles}}"
+    state: directory
+    mode: 0740
+
+- name: shellrc file
+  file:
+    path: "{{silhouette_shellrc}}"
+    state: touch
+    mode: 0640
+
+- name: shellrc varaibles
+  lineinfile:
+    path: "{{silhouette_shellrc}}"
+    regexp: "^export PATH={{silhouette_bin}}"
+    line: "export PATH={{silhouette_bin}}:$PATH"
+    mode: 0640
+
+- name: set editor
+  lineinfile:
+    path: "{{silhouette_shellrc}}"
+    regexp: "^export EDITOR="
+    line: "export EDITOR=vim"
+    mode: 0640
+
+- name: local executor
+  copy:
+    src: silhouette
+    dest: "{{silhouette_bin}}/silhouette"
+    mode: 0750

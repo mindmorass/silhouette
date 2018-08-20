@@ -1,0 +1,7 @@
+---
+
+- name: install dnstracer
+  homebrew:
+    name: dnstracer
+    state: present
+    update_homebrew: yes

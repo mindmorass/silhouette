@@ -1,0 +1,32 @@
+---
+
+- name: install powerlevel9k
+  git:
+    repo: https://github.com/bhilburn/powerlevel9k.git
+    dest: "{{powerlevel_home}}"
+
+- name: prompt options
+  template:
+    src: powerlevel9k.vars.j2
+    dest: "{{powerlevel_vars}}"
+    mode: 0640
+
+- name: shellrc - include powerlevel9k variables
+  lineinfile:
+    path: "{{silhouette_shellrc}}"
+    regexp: "^source {{powerlevel_vars}}"
+    line: "source {{powerlevel_vars}}"
+    mode: 0640
+
+- name: shellrc - include powerlevel9k theme
+  lineinfile:
+    path: "{{silhouette_shellrc}}"
+    regexp: "^source {{powerlevel_home}}/powerlevel9k.zsh-theme"
+    line: "source {{powerlevel_home}}/powerlevel9k.zsh-theme"
+    mode: 0640
+
+- name: install nerd fonts
+  get_url:
+    url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+    dest: ~/Library/Fonts
+    mode: 0640

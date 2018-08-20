@@ -1,0 +1,7 @@
+---
+
+silhouette_home: ~/.silhouette
+silhouette_bin: "{{silhouette_home}}/bin"
+silhouette_profile: "{{silhouette_home}}/profile"
+silhouette_shellrc: "{{silhouette_home}}/profile/.shellrc"
+silhouette_dotfiles: "{{silhouette_home}}/profile/static_dotfiles"

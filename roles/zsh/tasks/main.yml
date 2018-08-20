@@ -1,0 +1,14 @@
+---
+
+- name: install zsh
+  homebrew:
+    name: zsh
+    state: present
+    update_homebrew: yes
+
+- name: shellrc
+  lineinfile:
+    path: ~/.zshrc
+    regexp: "^source {{silhouette_shellrc}}"
+    line: "source {{silhouette_shellrc}}"
+    mode: 0640
