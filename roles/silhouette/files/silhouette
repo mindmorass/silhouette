@@ -4,6 +4,7 @@ ROOT_DIR="${HOME}/.silhouette"
 
 function remote_install() {
     git clone git@github.com:mindmorass/silhouette.git $ROOT_DIR
+    build
 }
 
 function help() {
@@ -23,13 +24,17 @@ function update() {
     fi
 }
 
+function build() {
+    cd $ROOT_DIR
+    ansible-playbook main.yml
+}
+
 case "${1}" in
     install)
 	remote_install	
 	;;
     build)
-	cd $ROOT_DIR
-	ansible-playbook main.yml
+	build
 	;;
     update)
 	update
