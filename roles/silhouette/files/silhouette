@@ -3,7 +3,7 @@
 ROOT_DIR="${HOME}/.silhouette"
 
 function remote_install() {
-    git clone git remote git@github.com:mindmorass/silhouette.git $ROOT_DIR
+    git clone git@github.com:mindmorass/silhouette.git $ROOT_DIR
 }
 
 function help() {

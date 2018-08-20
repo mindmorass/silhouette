@@ -9,7 +9,7 @@
 - name: shellrc varaibles
   lineinfile:
     path: "{{silhouette_shellrc}}"
-    regexp: '^eval "$(rbenv init -)"'
+    regexp: "^eval.*rbenv init"
     line: 'eval "$(rbenv init -)"'
     mode: 0640
 
